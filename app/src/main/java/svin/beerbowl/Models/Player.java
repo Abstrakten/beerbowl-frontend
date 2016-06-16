@@ -1,4 +1,4 @@
-package svin.beerbowl.Models;
+package svin.beerbowl.models;
 
 /**
  * Created by AbstraktenPC on 04-04-2016.
