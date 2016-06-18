@@ -14,6 +14,10 @@ public class networkSingleton {
     private RequestQueue mRequestQueue;
     private static Context mContext;
 
+    // TODO: consider using URL class instead of just strings
+    // URL's for network communication
+    private static String authentication = "http://5.206.195.231:8080/login";
+
     private networkSingleton(Context context) {
         mContext = context;
         mRequestQueue = getmRequestQueue();
@@ -35,5 +39,13 @@ public class networkSingleton {
 
     public <T> void AddToRequestQueue(Request<T> req){
         getmRequestQueue().add(req);
+    }
+
+    public static String getAuth() {
+        return authentication;
+    }
+
+    public static void setAuthentication(String authentication) {
+        networkSingleton.authentication = authentication;
     }
 }

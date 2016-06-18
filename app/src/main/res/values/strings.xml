@@ -3,6 +3,7 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
+    <string name="server_login_error">Something went wrong on the server. Please contact a developer</string>
     <string name="action_settings">Settings</string>
     <string name="prompt_login_name">Name</string>
     <string name="prompt_password">Password</string>
