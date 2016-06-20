@@ -63,7 +63,7 @@ public class MatchHistoryListAdapter extends BaseAdapter
             holder.awayPlayerTwo = (TextView)view.findViewById(R.id.fourthPlayerName);
             holder.homeTeamScore = (TextView)view.findViewById(R.id.LeftTeamScore);
             holder.awayTeamScore = (TextView)view.findViewById(R.id.RightTeamScore);
-            holder.date = (TextView)view.findViewById(R.id.matchDate);
+            holder.date = (TextView)view.findViewById(R.id.leagueName);
             view.setTag(holder);
         } else
         {

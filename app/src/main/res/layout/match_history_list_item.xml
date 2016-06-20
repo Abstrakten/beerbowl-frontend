@@ -13,14 +13,14 @@
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:id="@+id/matchDateLayout">
+        android:id="@+id/leagueNameLayout">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:id="@+id/matchDate"
+            android:id="@+id/leagueName"
             android:text="Dato"
             android:layout_alignParentLeft="true"/>
     </RelativeLayout>
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:paddingRight="10dp"
-        android:layout_toRightOf="@+id/matchDateLayout">
+        android:layout_toRightOf="@+id/leagueNameLayout">
 
         <View
             android:layout_width="1dp"

@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import svin.beerbowl.R;
-import svin.beerbowl.singletons.networkSingleton;
+import svin.beerbowl.utilities.NetworkSingleton;
 
 /**
  * A login screen that offers login via name/password.
@@ -70,6 +70,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+
     }
 
     /**
@@ -118,8 +120,14 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            sendLoginRequest(loginName, password);
+
+            // TODO remove this when internet comes back
+
+            startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class));
+            finish();
+
+            //showProgress(true);
+            //sendLoginRequest(loginName, password);
         }
     }
 
@@ -137,12 +145,17 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO use listener
         // TODO encrypt before sending
+        // TODO use tokens
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.POST, networkSingleton.getAuth(), null, new Response.Listener<JSONObject>() {
+                (Request.Method.POST, NetworkSingleton.getAuth(), null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         showProgress(false);
                         isRequestPending = false;
+
+                        Intent mIntent = new Intent(LoginActivity.this, HomeScreenActivity.class);
+                        mIntent.putExtra("username", ((EditText) findViewById(R.id.loginName)).getText().toString());
+                        mIntent.putExtra("password", ((EditText) findViewById(R.id.password)).getText().toString());
 
                         startActivity(new Intent(LoginActivity.this, HomeScreenActivity.class));
                         finish();
@@ -180,7 +193,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        networkSingleton.getInstance(getApplicationContext()).AddToRequestQueue(jsObjRequest);
+        NetworkSingleton.getInstance(getApplicationContext()).AddToRequestQueue(jsObjRequest);
 
     }
 

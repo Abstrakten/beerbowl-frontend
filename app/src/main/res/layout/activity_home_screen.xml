@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@drawable/background"
     tools:context="svin.beerbowl.activities.HomeScreenActivity">
 
     <RelativeLayout
@@ -17,31 +16,13 @@
         android:layout_alignParentEnd="true">
 
         <TextView
-            android:id="@+id/ProfilBrugernavn"
-            android:layout_marginTop="90dp"
+            android:id="@+id/ProfileName"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Brugernavn"
+            android:text="@string/username"
             android:textSize="48sp"/>
-
-        <!--<TextView-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:text="Rating:"-->
-        <!--android:textSize="48sp"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/ProfilBrugernavn"/>-->
-
-        <TextView
-            android:gravity="center"
-            android:layout_marginRight="15dp"
-            android:text="xxxx"
-            android:textSize="48sp"
-            android:id="@+id/RatingText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ProfilBrugernavn"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -49,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/RatingLayout"
         android:layout_marginTop="75dp"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:id="@+id/linearLayout">
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center_horizontal"
@@ -57,9 +39,11 @@
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
+
             <Button style="@style/ButtonStyle"
                 android:text="Registrer Spil"
                 android:id="@+id/RegGameButton"/>
+
             <Button style="@style/ButtonStyle"
                 android:text="Regler"
                 android:id="@+id/ReadRulesButton"/>
@@ -71,7 +55,8 @@
             android:gravity="center_horizontal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/homeScreenButtonsLayout">
 
             <Button style="@style/ButtonStyle"
                 android:text="Rangliste"
@@ -84,4 +69,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/favoriteLeaguesListView"
+        android:layout_below="@id/linearLayout"
+        android:stackFromBottom="true"/>
+
 </RelativeLayout>

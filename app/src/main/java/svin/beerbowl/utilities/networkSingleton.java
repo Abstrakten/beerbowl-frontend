@@ -1,4 +1,4 @@
-package svin.beerbowl.singletons;
+package svin.beerbowl.utilities;
 
 import android.content.Context;
 
@@ -9,8 +9,8 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by AbstraktenPC on 16-06-2016.
  */
-public class networkSingleton {
-    private static networkSingleton ourInstance;
+public class NetworkSingleton {
+    private static NetworkSingleton ourInstance;
     private RequestQueue mRequestQueue;
     private static Context mContext;
 
@@ -18,14 +18,14 @@ public class networkSingleton {
     // URL's for network communication
     private static String authentication = "http://5.206.195.231:8080/login";
 
-    private networkSingleton(Context context) {
+    private NetworkSingleton(Context context) {
         mContext = context;
         mRequestQueue = getmRequestQueue();
     }
 
-    public static synchronized networkSingleton getInstance(Context context){
+    public static synchronized NetworkSingleton getInstance(Context context){
         if(ourInstance == null){
-            ourInstance = new networkSingleton(context);
+            ourInstance = new NetworkSingleton(context);
         }
         return ourInstance;
     }
@@ -46,6 +46,6 @@ public class networkSingleton {
     }
 
     public static void setAuthentication(String authentication) {
-        networkSingleton.authentication = authentication;
+        NetworkSingleton.authentication = authentication;
     }
 }

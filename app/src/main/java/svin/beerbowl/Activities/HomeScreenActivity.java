@@ -21,12 +21,14 @@ public class HomeScreenActivity extends AppCompatActivity {
         regGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeScreenActivity.this, HomeScreenActivity.class);
+                Intent intent = new Intent(HomeScreenActivity.this, SubmitMatchActivity.class);
                 intent.putExtra("username", getIntent().getStringExtra("username"));
                 intent.putExtra("password", getIntent().getStringExtra("password"));
                 startActivity(intent);
             }
         });
+
+
 
 //        Button readRankingsButton = (Button) findViewById(R.id.ReadRankingsButton);
 //        readRankingsButton.setOnClickListener(new View.OnClickListener() {

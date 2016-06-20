@@ -1,6 +1,7 @@
 package svin.beerbowl.models;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,11 +12,21 @@ public class League {
     private List<Player> participants;
     private List<Player> admins;
     private List<Match> games;
+    private String name;
 
-    public League(Player creator){
-        admins = new ArrayList<>(admins);
-        participants = new ArrayList<>();
+    public League(Player creator, String leagueName){
+        name = leagueName;
+        admins = new LinkedList<>(admins);
+        participants = new LinkedList<>();
         games = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Match> getGames() {
